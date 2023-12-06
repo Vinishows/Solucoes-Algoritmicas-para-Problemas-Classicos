@@ -1,0 +1,23 @@
+Função SelecionarProjetos(projetos):
+    Ordenar projetos pela data de término em ordem crescente
+
+    projetosSelecionados = []
+    projetoAtual = projetos[0]
+    Adicionar projetoAtual a projetosSelecionados
+
+    Para i de 1 até o tamanho de projetos - 1:
+        projeto = projetos[i]
+        Se projeto.inicio >= projetoAtual.fim:
+            Adicionar projeto a projetosSelecionados
+            projetoAtual = projeto
+
+    Retornar projetosSelecionados
+
+Função Principal():
+    listaProjetos = [Projeto(1, 3, 50), Projeto(2, 5, 20), Projeto(6, 9, 30), Projeto(3, 8, 40)]
+    
+    projetosSelecionados = SelecionarProjetos(listaProjetos)
+
+    Imprimir "Projetos selecionados:"
+    Para cada projeto em projetosSelecionados:
+        Imprimir "Data Inicial: " + projeto.inicio + ", Data Final: " + projeto.fim + ", Lucro: " + projeto.lucro
