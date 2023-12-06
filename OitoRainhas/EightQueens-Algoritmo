@@ -1,0 +1,45 @@
+Função isSafe(tabuleiro, linha, coluna, n):
+    // Verifica se é seguro colocar uma rainha na posição (linha, coluna)
+    Para cada i de 0 até linha - 1:
+        Se tabuleiro[i] igual a coluna ou
+           tabuleiro[i] - i igual a coluna - linha ou
+           tabuleiro[i] + i igual a coluna + linha:
+            Retorne Falso
+    Retorne Verdadeiro
+
+Função shuffleArray(array):
+    // Embaralha um array utilizando o algoritmo de Fisher-Yates
+    Para i de comprimento(array) - 1 até 1:
+        índice = gerar número aleatório entre 0 e i (inclusive)
+        Troque array[i] com array[índice]
+
+Função printBoard(tabuleiro):
+    // Imprime o tabuleiro com 1s e 0s
+    Para cada i em tabuleiro:
+        Para cada j de 0 até comprimento(tabuleiro) - 1:
+            Se j igual a i:
+                Imprima "1 "
+            Senão:
+                Imprima "0 "
+        Imprima uma nova linha
+    Imprima uma nova linha
+
+Função placeQueens(tabuleiro, linha, n):
+    Se linha igual a n:
+        // Todas as rainhas foram colocadas com sucesso
+        Chame a função printBoard(tabuleiro)
+        Retorne
+    shuffledCols = array com valores de 0 até n - 1
+    Chame a função shuffleArray(shuffledCols)
+    Para cada col em shuffledCols:
+        Se isSafe(tabuleiro, linha, col):
+            tabuleiro[linha] = col
+            Chame a função placeQueens(tabuleiro, linha + 1, n)
+
+Função solveEightQueens(n):
+    tabuleiro = array de tamanho n inicializado com zeros
+    Chame a função placeQueens(tabuleiro, 0, n)
+
+Função principal():
+    n = 8  // Tamanho do tabuleiro de xadrez
+    Chame a função solveEightQueens(n)
