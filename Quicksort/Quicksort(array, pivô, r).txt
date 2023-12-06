@@ -1,0 +1,20 @@
+Quicksort(array, pivô, r)
+	se pivô é menor que r
+		q recebe Partition(array, pivô, r)
+		a recebe q - 1
+		b recebe q + 1
+		Quicksort(array, pivô, a)
+		Quicksort(array, b, r)
+	retorne array
+
+Partition(array, pivô, r)
+	x recebe array[r]
+	i recebe pivô - 1
+	
+	j recebe pivô, j até r - 1
+		se array[j] é menor ou igual à x
+			i++
+			trocar array[i] e array[j]
+		senão
+			trocar array[i+1] e array[r]
+			retornar i+1
