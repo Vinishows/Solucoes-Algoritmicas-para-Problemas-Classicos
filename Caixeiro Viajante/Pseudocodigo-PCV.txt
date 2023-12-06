@@ -1,0 +1,69 @@
+Função Principal CaixeiroViajante():
+    numCidades = 10
+    matrizDistancias = criarMatrizDistancias(numCidades)
+    melhorCaminho = nulo
+    menorDistancia = valorMáximoInteiro
+    
+    cidades = criarListaCidades(numCidades)
+    permutacoes = gerarPermutacoes(cidades)
+    
+    Para cada caminho em permutacoes:
+        distanciaAtual = calcularDistancia(caminho, matrizDistancias)
+        
+        Se distanciaAtual < menorDistancia:
+            menorDistancia = distanciaAtual
+            melhorCaminho = copiarLista(caminho)
+            
+            exibirCoordenadas(melhorCaminho, matrizDistancias)
+            Escrever "Caminho parcial:", melhorCaminho
+            Escrever "Distância parcial:", menorDistancia
+            Escrever "----------------------"
+    
+    Escrever "=================================================================="
+    exibirCoordenadas(melhorCaminho, matrizDistancias)
+    Escrever "Melhor caminho:", melhorCaminho
+    Escrever "Distância:", menorDistancia
+    Escrever "=================================================================="
+
+Função exibirCoordenadas(caminho, matrizDistancias):
+    Escrever "Coordenadas:"
+    
+    Para cada i de 0 até tamanho(caminho) - 1:
+        cidadeAtual = caminho[i]
+        proximaCidade = (i + 1) % tamanho(caminho)
+        Escrever i + 1, ". Matriz:[", cidadeAtual, "][", proximaCidade, "] = ", matrizDistancias[cidadeAtual][proximaCidade]
+
+Função criarMatrizDistancias(numCidades):
+    matrizDistancias = criarMatriz(numCidades, numCidades)
+    
+    Para cada i de 0 até numCidades - 1:
+        Para cada j de 0 até numCidades - 1:
+            matrizDistancias[i][j] = gerarNumeroAleatorio() * 100
+    
+    Retornar matrizDistancias
+
+Função gerarPermutacoes(cidades):
+    result = criarListaVazia()
+    permutacoesRecursivo(result, cidades, 0)
+    Retornar result
+
+Função permutacoesRecursivo(result, cidades, index):
+    Se index = tamanho(cidades) - 1:
+        Adicionar cópia de cidades a result
+    Senão:
+        Para cada i de index até tamanho(cidades) - 1:
+            Trocar cidades[index] com cidades[i]
+            permutacoesRecursivo(result, cidades, index + 1)
+            Trocar cidades[index] com cidades[i]
+
+Função calcularDistancia(caminho, matrizDistancias):
+    distancia = 0
+    
+    Para cada i de 0 até tamanho(caminho) - 2:
+        cidadeAtual = caminho[i]
+        proximaCidade = caminho[i + 1]
+        distancia += matrizDistancias[cidadeAtual][proximaCidade]
+    
+    distancia += matrizDistancias[caminho[tamanho(caminho) - 1]][caminho[0]]
+    
+    Retornar distancia
