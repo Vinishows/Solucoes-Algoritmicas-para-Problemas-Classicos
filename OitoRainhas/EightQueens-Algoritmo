@@ -1,45 +1,68 @@
-Função isSafe(tabuleiro, linha, coluna, n):
+Função isSafe(tabuleiro, linha, coluna, n): // Tempo: Θ(1) / Espaço: Θ(2n+2)
     // Verifica se é seguro colocar uma rainha na posição (linha, coluna)
-    Para cada i de 0 até linha - 1:
-        Se tabuleiro[i] igual a coluna ou
-           tabuleiro[i] - i igual a coluna - linha ou
-           tabuleiro[i] + i igual a coluna + linha:
-            Retorne Falso
-    Retorne Verdadeiro
+    Para cada i de 0 até linha - 1: // Tempo: Θ(n+1)  / Espaço: Θ(1)
+        Se tabuleiro[i] igual a coluna ou // Tempo: Θ(n)  / Espaço: Θ(0)
+           tabuleiro[i] - i igual a coluna - linha ou // Tempo: Θ(n)  / Espaço: Θ(0)
+           tabuleiro[i] + i igual a coluna + linha: // Tempo: Θ(n)  / Espaço: Θ(0)
+            Retorne Falso // Tempo: Θ(n)  / Espaço: Θ(0)
+    Retorne Verdadeiro // Tempo: Θ(1)  / Espaço: Θ(0)
 
-Função shuffleArray(array):
-    // Embaralha um array utilizando o algoritmo de Fisher-Yates
-    Para i de comprimento(array) - 1 até 1:
-        índice = gerar número aleatório entre 0 e i (inclusive)
-        Troque array[i] com array[índice]
+// Complexidade de Tempo: 5n + 3 = Θ(n) 
+// Espaço: 2n + 3 = Θ(n)
 
-Função printBoard(tabuleiro):
+Função shuffleArray(array): // Tempo: Θ(1) / Espaço: Θ(n)
+    // Embaralha um array utilizando o algoritmo de Fisher-Yates 
+    Para i de comprimento(array) - 1 até 1: // Tempo: Θ(n+1) / Espaço: Θ(1)
+        índice = gerar número aleatório entre 0 e i (inclusive) // Tempo: Θ(n) / Espaço: Θ(n-1)
+        Troque array[i] com array[índice] // Tempo: Θ(n) / Espaço: Θ(0)  
+// Complexidade de Tempo: 3n + 2 = Θ(n)  
+// Espaço: 3n - 1 = Θ(n)
+
+Função printBoard(tabuleiro): // Tempo: Θ(1) / Espaço: Θ(n) 
     // Imprime o tabuleiro com 1s e 0s
-    Para cada i em tabuleiro:
-        Para cada j de 0 até comprimento(tabuleiro) - 1:
-            Se j igual a i:
-                Imprima "1 "
-            Senão:
-                Imprima "0 "
-        Imprima uma nova linha
-    Imprima uma nova linha
+    Para cada i em tabuleiro: // Tempo: Θ(n+1) / Espaço: Θ(1)
+        Para cada j de 0 até comprimento(tabuleiro) - 1: // Tempo: Θ(n+1)  / Espaço: Θ(n+1) 
+            Se j igual a i: // Tempo: Θ(1)  / Espaço: Θ(0) 
+                Imprima "1 " // Tempo: Θ(1)  / Espaço: Θ(0)  
+            Senão: // Tempo: Θ(1) / Espaço: Θ(0)  
+                Imprima "0 " // Tempo: Θ(1) / Espaço: Θ(0)  
+        Imprima uma nova linha // Tempo: Θ(1) / Espaço: Θ(0)  
+    Imprima uma nova linha // Tempo: Θ(1) / Espaço: Θ(0) 
 
-Função placeQueens(tabuleiro, linha, n):
-    Se linha igual a n:
+// Complexidade de Tempo: 3n^2+3n-1 = Θ(n^2)
+// Espaço: 2n + 2 = Θ(n)
+
+Função placeQueens(tabuleiro, linha, n): // Tempo: Θ(1) / Espaço: Θ(2n+1)  
+    Se linha igual a n: // Tempo: Θ(1) / Espaço: Θ(0)
         // Todas as rainhas foram colocadas com sucesso
-        Chame a função printBoard(tabuleiro)
-        Retorne
-    shuffledCols = array com valores de 0 até n - 1
-    Chame a função shuffleArray(shuffledCols)
-    Para cada col em shuffledCols:
-        Se isSafe(tabuleiro, linha, col):
-            tabuleiro[linha] = col
-            Chame a função placeQueens(tabuleiro, linha + 1, n)
+        Chame a função printBoard(tabuleiro) // Tempo: Θ(n^2) / Espaço: Θ(n)
+        Retorne // Tempo: Θ(1) / Espaço: Θ(0)
+    shuffledCols = array com valores de 0 até n - 1 // Tempo: Θ(1) / Espaço: Θ(n)
+    Chame a função shuffleArray(shuffledCols) // Tempo: Θ(1) / Espaço: Θ(n)
+    Para cada col em shuffledCols: // Tempo: Θ(n+1) / Espaço: Θ(n+1)
+        Se isSafe(tabuleiro, linha, col): // Tempo: Θ(n) / Espaço: Θ(0)
+            tabuleiro[linha] = col // Tempo: Θ(n) / Espaço: Θ(0)
+            Chame a função placeQueens(tabuleiro, linha + 1, n) // Tempo: Θ(n) / Espaço: Θ(n)
+// Complexidade de Tempo: n^2 + 3n + 6 = Θ(n^2) + Θ(n^2) = 2T(n^2/2) + (3n + 6) <= cs = 2T(n^2/2) + cs = Θ(n)
+// Espaço: 6n + 2 = Θ(n) + Θ(n) = 2T(n/2) + cs = Θ(n)
 
-Função solveEightQueens(n):
-    tabuleiro = array de tamanho n inicializado com zeros
-    Chame a função placeQueens(tabuleiro, 0, n)
+Função solveEightQueens(n): // Tempo: Θ(1) / Espaço: Θ(n)
+    tabuleiro = array de tamanho n inicializado com zeros // Tempo: Θ(1) / Espaço: Θ(n)
+    Chame a função placeQueens(tabuleiro, 0, n) // Tempo: Θ(n) / Espaço: Θ(n)
 
-Função principal():
-    n = 8  // Tamanho do tabuleiro de xadrez
-    Chame a função solveEightQueens(n)
+// Complexidade de Tempo: n + 2 = Θ(n)
+// Espaço: 3n = Θ(n)
+
+Função principal(): // Tempo: Θ(0) / Espaço: Θ(0)
+    n = 8  // Tamanho do tabuleiro de xadrez // Tempo: Θ(1) / Espaço: Θ(1)
+    Chame a função solveEightQueens(n) // Tempo: Θ(n) / Espaço: Θ(n)
+
+// Complexidade de Tempo: n + 2 = Θ(n)
+// Espaço: n + 1 = Θ(n)
+
+//—---------------------------------------------------------------
+// Complexidade Final de Tempo: Θ(n^2)
+// Final de Espaço: Θ(n)
+//—---------------------------------------------------------------
+
+//Made by Rafael
