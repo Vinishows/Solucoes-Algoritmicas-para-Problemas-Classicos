@@ -1,23 +1,23 @@
 Função SelecionarProjetos(projetos):
-    Ordenar projetos pela data de término em ordem crescente
+    Ordenar projetos pela data de término em ordem crescente                                                          Tempo:Θ(n log n)/Espaço:Θ(1)
 
-    projetosSelecionados = []
-    projetoAtual = projetos[0]
-    Adicionar projetoAtual a projetosSelecionados
+    projetosSelecionados = []                                                                                         Tempo:Θ(1)/Espaço:Θ(1)
+    projetoAtual = projetos[0]                                                                                        Tempo:Θ(1)/Espaço:Θ(1)
+    Adicionar projetoAtual a projetosSelecionados                                                                     Tempo:Θ(1)/Espaço:Θ(1)
 
     Para i de 1 até o tamanho de projetos - 1:
-        projeto = projetos[i]
-        Se projeto.inicio >= projetoAtual.fim:
-            Adicionar projeto a projetosSelecionados
-            projetoAtual = projeto
+        projeto = projetos[i]                                                                                         Tempo:Θ(n)/Espaço:Θ(1)
+        Se projeto.inicio >= projetoAtual.fim: 
+            Adicionar projeto a projetosSelecionados                                                                  Tempo:Θ(1)/Espaço:Θ(1)
+            projetoAtual = projeto                                                                                    Tempo:Θ(1)/Espaço:Θ(1)
 
-    Retornar projetosSelecionados
+    Retornar projetosSelecionados                                                                                     Tempo:Θ(n)/Espaço:Θ(1)
 
 Função Principal():
-    listaProjetos = [Projeto(1, 3, 50), Projeto(2, 5, 20), Projeto(6, 9, 30), Projeto(3, 8, 40)]
+    listaProjetos = [Projeto(1, 3, 50), Projeto(2, 5, 20), Projeto(6, 9, 30), Projeto(3, 8, 40)]                      Tempo:Θ(1)/Espaço:Θ(n)
     
-    projetosSelecionados = SelecionarProjetos(listaProjetos)
+    projetosSelecionados = SelecionarProjetos(listaProjetos)                                                          Tempo:Θ(n log n)/Espaço:Θ(1)
 
-    Imprimir "Projetos selecionados:"
+    Imprimir "Projetos selecionados:"                                                                                 Tempo:Θ(n)/Espaço:Θ(1)
     Para cada projeto em projetosSelecionados:
-        Imprimir "Data Inicial: " + projeto.inicio + ", Data Final: " + projeto.fim + ", Lucro: " + projeto.lucro
+        Imprimir "Data Inicial: " + projeto.inicio + ", Data Final: " + projeto.fim + ", Lucro: " + projeto.lucro     Tempo:Θ(n)/Espaço:Θ(1)
