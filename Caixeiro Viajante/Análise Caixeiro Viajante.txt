@@ -1,0 +1,11 @@
+Função criarMatrizDistancias (Complexidade O(n²)):
+
+Função gerarPermutacoes (Complexidade O(n!)):
+
+Função permutacoesRecursivo (Complexidade O(n!)):
+
+Função calcularDistancia (Complexidade O(n)):
+
+Função Principal (Complexidade O(n! * n)):
+
+
