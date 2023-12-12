@@ -13,6 +13,8 @@ public class EightQueens {
         }
         return true;
     }
+    // Complexidade de Tempo: O(1)
+    // Complexidade de Espaço: O(1)
 
     public static void placeQueens(int[] board, int row, int n) {
         if (row == n) {
@@ -34,6 +36,8 @@ public class EightQueens {
             }
         }
     }
+    // Complexidade de Tempo: O(n)
+    // Complexidade de Espaço: O(n)
 
     public static void shuffleArray(int[] array) {
         Random rand = new Random();
@@ -44,6 +48,8 @@ public class EightQueens {
             array[index] = temp;
         }
     }
+    // Complexidade de Tempo: O(n)
+    // Complexidade de Espaço: O(1)
 
     public static void printBoard(int[] board) {
         for (int i : board) {
@@ -58,14 +64,20 @@ public class EightQueens {
         }
         System.out.println();
     }
+    // Complexidade de Tempo: O(n^2)
+    // Complexidade de Espaço: O(1)
 
     public static void solveEightQueens(int n) {
         int[] board = new int[n];
         placeQueens(board, 0, n);
     }
+    // Complexidade de Tempo: O(n!)
+    // Complexidade de Espaço: O(n)
 
     public static void main(String[] args) {
         int n = 8; // Tamanho do tabuleiro de xadrez
         solveEightQueens(n);
     }
+    // Complexidade de Tempo: O(n!)
+    // Complexidade de Espaço: O(n)
 }
