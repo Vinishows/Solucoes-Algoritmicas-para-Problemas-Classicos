@@ -1,4 +1,4 @@
-Quicksort(array, pivô, r)
+Quicksort(array, pivô, r)			//Tempo de Execução: Pior Caso = Θ(n^2); Melhor Caso = Θ(n lg n) 
 	se pivô é menor que r
 		q recebe Partition(array, pivô, r)
 		a recebe q - 1
@@ -7,7 +7,7 @@ Quicksort(array, pivô, r)
 		Quicksort(array, b, r)
 	retorne array
 
-Partition(array, pivô, r)
+Partition(array, pivô, r)			//Tempo de Execução: Θ(n)
 	x recebe array[r]
 	i recebe pivô - 1
 	
